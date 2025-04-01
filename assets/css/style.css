@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* En-tête */
+
 header {
     background-color: #8B0000;
     color: white;
@@ -36,7 +36,6 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Contenu principal */
 main {
     padding: 20px;
     text-align: center;
@@ -55,7 +54,7 @@ h1, h2, h3 {
     color: #8B0000;
 }
 
-/* Menu */
+
 ul {
     list-style: none;
     padding: 0;
@@ -67,7 +66,7 @@ ul li {
     border-radius: 5px;
 }
 
-/* Galerie d'images */
+
 .gallery {
     display: flex;
     justify-content: center;
@@ -103,4 +102,112 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.menu-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+    overflow: hidden;
+}
+.carousel-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.carousel-container img {
+    width: 1400px;
+    height: 600px;
+    object-fit: cover;
+    display: none;
+    border-radius: 10px;
+}
+.prev, .next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 1024px) {
+    .carousel-container img {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    section {
+        width: 90%;
+    }
+    .carousel-container img {
+        max-height: 400px;
+    }
+    .prev, .next {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+    .carousel-container img {
+        max-height: 300px;
+    }
+    .prev, .next {
+        font-size: 14px;
+        padding: 6px;
+    }
 }

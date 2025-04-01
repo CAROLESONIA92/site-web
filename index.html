@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Le Délice - Accueil</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,6 +21,22 @@
     <main>
         <section>
             <article>
+                <h2>Galerie</h2>
+                <p>Découvrez nos plats en images :</p>
+                <div class="carousel">
+                    <button class="prev">&#10094;</button>
+                    <div class="carousel-container">
+                        <img src="assets/image/chicken-chop.jpg" alt="Chicken Chop">
+                        <img src="assets/image/chicken.jpg" alt="Plat 2">
+                        <img src="assets/image/penne-pasta.jpg" alt="Plat 3">
+                    </div>
+                    <button class="next">&#10095;</button>
+                </div>
+              
+            </article>
+        </section>
+        <section>
+            <article>
                 <h2>Bienvenue au Restaurant Le Délice</h2>
                 <p>Découvrez une cuisine savoureuse avec des produits frais et de qualité.</p>
                 <img src="assets/image/penne-chacko.jpg" alt="Restaurant Le Délice" width="600">
@@ -31,26 +48,39 @@
                 <p>Nous vous proposons une expérience culinaire unique, inspirée des saveurs du monde.</p>
                 <img src="assets/image/sauteed-mood.jpg" alt="Notre spécialité" width="600">
             </article>
-        </section>
-        <section>
-            <article>
-                <h2>Galerie</h2>
-                <p>Découvrez nos plats en images :</p>
-                <div class="gallery">
-                    <img src="assets/image/chicken-chop.jpg" alt="chicken chop" width="200" height="200">
-                    <img src="assets/image/chicken.jpg" alt="Plat 2" width="200" height="200">
-                    <img src="assets/image/penne-pasta.jpg" alt="Plat 3" width="200" height="200">
-                </div>
-                <p>Regardez une vidéo de notre chef en pleine action :</p>
-                <video width="600" controls>
-                    <source src="chef.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture des vidéos.
-                </video>
-            </article>
+
+            <p>Regardez une vidéo de notre chef en pleine action :</p>
+            <a href="https://www.youtube.com/watch?v=kdMslfv_T_E" target="_blank">
+                Regarder la vidéo sur YouTube
+            </a>  
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Restaurant Le Délice - Tous droits réservés.</p>
     </footer>
+    <script>
+        $(document).ready(function(){
+            let index = 0;
+            const images = $('.carousel-container img');
+            const totalImages = images.length;
+
+            function showImage(i) {
+                images.hide();
+                images.eq(i).show();
+            }
+            
+            $('.next').click(function() {
+                index = (index + 1) % totalImages;
+                showImage(index);
+            });
+            
+            $('.prev').click(function() {
+                index = (index - 1 + totalImages) % totalImages;
+                showImage(index);
+            });
+            
+            showImage(index);
+        });
+    </script>
 </body>
 </html>
